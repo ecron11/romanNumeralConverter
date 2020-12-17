@@ -1,0 +1,42 @@
+h1 {
+    color: white;
+}
+
+h2 {
+    background: red;
+
+}
+header {
+    background-color: rebeccapurple;
+}
+
+#number-input-container {
+    background-color: aliceblue;
+    padding: 0;
+    margin: 0;
+}
+
+main {
+    width: 100%;
+    max-width: 768px;
+    padding: 0;
+}
+
+main>h2 {
+    width: 100%;
+}
+
+form {
+    width: 80%;
+}
+label {
+    display: none;
+}
+
+#converted-roman-num {
+    background-color: green;
+    border-radius: 15px;
+}
+button {
+    background: red;
+}
