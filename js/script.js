@@ -14,31 +14,35 @@ function formSubmitromNumConversion() {
 function convertRomNum() {
     //converts a number value into roman numerals
     let num = $("#number-input-text").val();
-    let numStr = num.toString();
-
     let romNum = "";
+    if (num <= 4000) {
+        let numStr = num.toString();
 
-    //Convert thousands digit
-    if (numStr.length > 3) {
-        thousandsDigit = parseInt(numStr.substring(0, numStr.length - 3));
-        for (let i = 0; i < thousandsDigit; i++) {
-            romNum += "M";
+        //Convert thousands digit
+        if (numStr.length > 3) {
+            thousandsDigit = parseInt(numStr.substring(0, numStr.length - 3));
+            for (let i = 0; i < thousandsDigit; i++) {
+                romNum += "M";
+            }
         }
+        //Convert hundreds digit
+        if (numStr.length > 2) {
+            let hundredsDigit = numStr[numStr.length-3];
+            romNum += convertRomDigit(hundredsDigit, "C", "D", "M");
+        }
+        //Convert tens digit
+        if (numStr.length > 1) {
+            let tensDigit = numStr[numStr.length-2];
+            romNum += convertRomDigit(tensDigit, "X", "L", "C");
+        }
+        if (numStr.length > 0) {
+            let onesDigit = numStr[numStr.length-1];
+            romNum += convertRomDigit(onesDigit, "I", "V", "X");
+        }
+    } else {
+        romNum = "Too much! 4000 or less please.";
     }
-    //Convert hundreds digit
-    if (numStr.length > 2) {
-        let hundredsDigit = numStr[numStr.length-3];
-        romNum += convertRomDigit(hundredsDigit, "C", "D", "M");
-    }
-    //Convert tens digit
-    if (numStr.length > 1) {
-        let tensDigit = numStr[numStr.length-2];
-        romNum += convertRomDigit(tensDigit, "X", "L", "C");
-    }
-    if (numStr.length > 0) {
-        let onesDigit = numStr[numStr.length-1];
-        romNum += convertRomDigit(onesDigit, "I", "V", "X");
-    }
+
     $("#converted-roman-num").text(romNum);
 }
 
