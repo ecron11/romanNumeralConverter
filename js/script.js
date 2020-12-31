@@ -20,7 +20,7 @@ function convertRomNum() {
 
         //Convert thousands digit
         if (numStr.length > 3) {
-            thousandsDigit = parseInt(numStr.substring(0, numStr.length - 3));
+            let thousandsDigit = parseInt(numStr.substring(0, numStr.length - 3));
             for (let i = 0; i < thousandsDigit; i++) {
                 romNum += "M";
             }
@@ -49,7 +49,7 @@ function convertRomNum() {
 //This function converts a single digit to roman numerals based on letters passed into the function
 function convertRomDigit(romDigit, romLet1, romLet2, romLet3) {
     console.log(romDigit);
-    romDigitInt = Number(romDigit);
+    let romDigitInt = Number(romDigit);
     let romNum = "";
     switch(romDigitInt) {
         case 0:
